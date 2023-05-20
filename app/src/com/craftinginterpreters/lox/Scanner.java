@@ -75,11 +75,17 @@ class Scanner {
                 break;
 
             default:
-                Lox.error(line, "Unexpected character.");
+                if (isDigit(c)) {
+                    number();
+                } else {
+                    Lox.error(line, "Unexpected character.");
+                }
                 break;
 
         }
     }
+
+    private void 
 
     private void string() {
         while (peek() != '"' && !isAtEnd()) {
